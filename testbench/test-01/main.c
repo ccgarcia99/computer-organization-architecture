@@ -16,11 +16,8 @@ int ALU(unsigned char operand1 , unsigned char operand2 , unsigned char control_
 
 void main()
 {
-    unsigned char operand1 = 0x05;
-    unsigned char operand2 = 0x0A;
-    unsigned char control_signals = 0x02;
 
-    printf("Result = %d\n", ALU(operand1, operand2, control_signals));
+    printf("Result = %d\n", ALU(0x05,0x02,0x02));
 }
 
 int ALU(unsigned char operand1 , unsigned char operand2 , unsigned char control_signals)
