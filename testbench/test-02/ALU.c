@@ -4,11 +4,11 @@
     FUNCTION PROTOTYPES
 */
 unsigned char ADD(unsigned char operand1, unsigned char operand2);
-unsigned char boothsAlgorithm(unsigned char operand1, unsigned char operand2);
 unsigned char twosComp(unsigned char operand);
 unsigned char setFlags(unsigned int ACC);
-void printBin(int data, unsigned char data_width);
+int boothsAlgorithm(unsigned char operand1, unsigned char operand2);
 int ALU(unsigned char operand1, unsigned char operand2, unsigned char control_signals);
+void printBin(int data, unsigned char data_width);
 void newLine(){printf("\n");}
 
 /*
@@ -103,40 +103,7 @@ unsigned char setFlags (unsigned int ACC)
 	}
 }
 
-
-unsigned char boothsAlgorithm(unsigned char operand1, unsigned char operand2)
+int boothsAlgorithm(unsigned char operand1, unsigned char operand2)
 {
-    unsigned char ACC = 0x0000;
-    unsigned char M = operand1;
-    unsigned char Q = operand2;
-    unsigned char Q_1 = 0;
-    unsigned char count = 8;
-
-    while (count > 0)
-    {
-        if ((Q & 0x01) == 0x01 && (Q_1 & 0x01) == 0x00)
-        {
-            ACC += M;
-        }
-        else if ((Q & 0x01) == 0x00 && (Q_1 & 0x01) == 0x01)
-        {
-            ACC += twosComp(M);
-        }
-
-        if ((ACC & 0x01) == 0x01)
-        {
-            Q_1 = Q;
-            Q = (Q >> 1) | 0x80;
-        }
-        else
-        {
-            Q_1 = Q;
-            Q = Q >> 1;
-        }
-
-        ACC = ACC >> 1;
-        count--;
-    }
-
-    return ACC;
+    return 0; 
 }
